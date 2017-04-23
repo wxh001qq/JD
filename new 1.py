@@ -27,3 +27,6 @@ def get_action_level_feat1(start_date,end_date):
                 action=pd.merge(action,grouped,on='sku_id',how='outer')
             action.to_csv(dump_path,index=False)
     return action
+
+	
+print 
