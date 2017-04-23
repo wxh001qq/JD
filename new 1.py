@@ -16,7 +16,7 @@ def get_action_level_feat1(start_date,end_date):
             df = actions
             df['day_'+str(i)]=df['day'].map(lambda x: x/i )
             df=df.drop(['day'],axis=1)
-            grouped=df.groupby(['sku_id','day_'+str(i)]).sum()
+            grouped=df.groupby(['sku_id','day_'+str(i)]).sum()############
             grouped=grouped.unstack()
             grouped.columns=[range(grouped.shape[1])]
             grouped=grouped.reset_index()
@@ -27,6 +27,5 @@ def get_action_level_feat1(start_date,end_date):
                 action=pd.merge(action,grouped,on='sku_id',how='outer')
             action.to_csv(dump_path,index=False)
     return action
-
 	
 print 
